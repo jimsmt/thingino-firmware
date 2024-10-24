@@ -1,0 +1,17 @@
+day_night_max=15000
+day_night_min=500
+disable_eth=false
+enable_updates=true
+gpio_default=
+gpio_ircut=53 52
+gpio_ir850=50
+gpio_button=14
+gpio_led_r=58O
+gpio_led_g=57O
+gpio_motor_h=6 7 8 9
+gpio_motor_v=14 16 17 14
+motor_maxstep_h=2000
+motor_maxstep_v=700
+wlandev=aic8800
+osmem=80M@0x0
+rmem=48M@0x5000000
