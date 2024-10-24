@@ -5,6 +5,7 @@ enable_updates=true
 gpio_default=
 gpio_ircut=53 52
 gpio_ir850=50
+gpio_button=62
 gpio_led_r=58O
 gpio_led_g=57O
 gpio_motor_h=6 7 8 9
