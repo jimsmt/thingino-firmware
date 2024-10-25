@@ -21,6 +21,8 @@ define WIFI_AIC8800_LINUX_CONFIG_FIXUPS
 endef
 
 define WIFI_AIC8800_INSTALL_FIRMWARE
+	$(INSTALL) -m 755 -d $(TARGET_DIR)/lib/firmware
+	$(INSTALL) -m 755 -d $(TARGET_DIR)/lib/firmware/aic8800D80
 	$(INSTALL) -m 644 $(@D)/fw/aic8800D80/fw_patch_8800d80_u02.bin $(TARGET_DIR)/lib/firmware/aic8800D80/fw_patch_8800d80_u02.bin
 	$(INSTALL) -m 644 $(@D)/fw/aic8800D80/fw_patch_table_8800d80_u02.bin $(TARGET_DIR)/lib/firmware/aic8800D80/fw_patch_table_8800d80_u02.bin
 	$(INSTALL) -m 644 $(@D)/fw/aic8800D80/fmacfw_8800d80_u02.bin $(TARGET_DIR)/lib/firmware/aic8800D80/fmacfw_8800d80_u02.bin
