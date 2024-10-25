@@ -22,11 +22,7 @@ endef
 
 define WIFI_AIC8800_INSTALL_FIRMWARE
 	$(INSTALL) -m 755 -d $(TARGET_DIR)/lib/firmware/aic8800D80
-	$(INSTALL) -m 644 $(@D)/fw/aic8800D80/fw_patch_8800d80_u02.bin $(TARGET_DIR)/lib/firmware/aic8800D80/fw_patch_8800d80_u02.bin
-	$(INSTALL) -m 644 $(@D)/fw/aic8800D80/fw_patch_table_8800d80_u02.bin $(TARGET_DIR)/lib/firmware/aic8800D80/fw_patch_table_8800d80_u02.bin
-	$(INSTALL) -m 644 $(@D)/fw/aic8800D80/fmacfw_8800d80_u02.bin $(TARGET_DIR)/lib/firmware/aic8800D80/fmacfw_8800d80_u02.bin
-	$(INSTALL) -m 644 $(@D)/fw/aic8800D80/fw_adid_8800d80_u02.bin $(TARGET_DIR)/lib/firmware/aic8800D80/fw_adid_8800d80_u02.bin
-	$(INSTALL) -m 644 $(@D)/fw/aic8800D80/aic_userconfig_8800d80.txt $(TARGET_DIR)/lib/firmware/aic8800D80/aic_userconfig_8800d80.txt
+	$(INSTALL) -m 644 $(@D)/fw/aic8800D80/* $(TARGET_DIR)/lib/firmware/aic8800D80/*
 endef
 
 WIFI_AIC8800_POST_INSTALL_TARGET_HOOKS += WIFI_AIC8800_INSTALL_FIRMWARE
