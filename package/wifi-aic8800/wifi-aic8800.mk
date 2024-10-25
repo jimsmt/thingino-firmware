@@ -20,5 +20,11 @@ define WIFI_AIC8800_LINUX_CONFIG_FIXUPS
 	$(call KCONFIG_SET_OPT,CONFIG_MAC80211_RC_DEFAULT,"minstrel_ht")
 endef
 
+define WIFI_AIC8800_INSTALL_FIRMWARE
+	$(INSTALL) -m 644 $(@D)/firmware/aic8800D80 $(TARGET_DIR)/lib/firmware/
+endef
+
+WIFI_AIC8800_POST_INSTALL_TARGET_HOOKS += WIFI_AIC8800_INSTALL_FIRMWARE
+
 $(eval $(kernel-module))
 $(eval $(generic-package))
