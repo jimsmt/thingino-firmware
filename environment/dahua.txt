@@ -7,6 +7,7 @@ gpio_button=7
 gpio_ircut=52 53
 gpio_ir850=49
 gpio_button=7
+gpio_speaker=9
 gpio_led_r=10
 gpio_led_g=11
 gpio_mmc_power=58o
