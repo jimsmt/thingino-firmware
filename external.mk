@@ -617,7 +617,7 @@ $(info KERNEL_HASH=$(shell git ls-remote $(KERNEL_SITE) $(KERNEL_BRANCH) | head 
 THINGINO_KERNEL = $(KERNEL_SITE)/archive/$(KERNEL_HASH).tar.gz
 $(info THINGINO_KERNEL=$(THINGINO_KERNEL))
 
-THINGINO_UBOOT_REPO = https://github.com/gtxaspec/u-boot-ingenic
+THINGINO_UBOOT_REPO = https://github.com/jimsmt/u-boot-ingenic
 THINGINO_UBOOT_REPO_BRANCH = master
 THINGINO_UBOOT_REPO_VERSION = $(shell git ls-remote $(THINGINO_UBOOT_REPO) $(THINGINO_UBOOT_REPO_BRANCH) | head -1 | cut -f1)
 $(info THINGINO_UBOOT_REPO=$(THINGINO_UBOOT_REPO))
