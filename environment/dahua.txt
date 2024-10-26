@@ -4,6 +4,7 @@ disable_eth=true
 enable_updates=true
 gpio_default=
 gpio_button=7
+gpio_mmc_cd=57
 gpio_ircut=52 53
 gpio_ir850=49
 gpio_button=7
