@@ -1,0 +1,16 @@
+day_night_max=15000
+day_night_min=500
+disable_eth=true
+enable_updates=true
+gpio_default=
+gpio_ircut=
+gpio_ir850=
+gpio_button=7
+gpio_led_r=10
+gpio_led_g=11
+gpio_motor_h=60 62 63 64
+gpio_motor_v=55 58 59 61
+motor_maxstep_h=2000
+motor_maxstep_v=700
+wlandev=ssv6155
+serialport=ttyS0
