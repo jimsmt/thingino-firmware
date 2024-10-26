@@ -55,7 +55,7 @@ else
 FIGLET := $(shell command -v figlet) -t -f pagga
 endif
 
-U_BOOT_GITHUB_URL := https://github.com/gtxaspec/u-boot-ingenic/releases/download/latest
+U_BOOT_GITHUB_URL := https://github.com/jimsmt/u-boot-ingenic/releases/download/latest
 U_BOOT_ENV_FINAL_TXT = $(OUTPUT_DIR)/target/etc/uenv.txt
 
 ifeq ($(BR2_TARGET_UBOOT_FORMAT_CUSTOM_NAME),)
