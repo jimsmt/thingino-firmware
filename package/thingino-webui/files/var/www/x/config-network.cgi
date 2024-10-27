@@ -13,19 +13,15 @@ if [ "POST" = "$REQUEST_METHOD" ]; then
 				update_caminfo
 				redirect_to "reboot.cgi"
 			else
-				redirect_back "warning" "${POST_mac_address} is as invalid MAC address."
+				redirect_back "warning" "$POST_mac_address is as invalid MAC address."
 			fi
 			;;
 		update)
 			# parse values from parameters
-			for p in $params; do
-				eval ${plugin}_$p=\$POST_${plugin}_$p
-				sanitize "${plugin}_$p"
-			done; unset p
+			read_from_post "$plugin" "$params"
 
-			network_interface=$(echo $network_interfaces | cut -d' ' -f1)
-
-			[ -z "$network_interface" ] && set_error_flag "Default network interface cannot be empty."
+			network_interface=$POST_network_interface
+			[ -z "$network_interface" ] && set_error_flag "Network interface cannot be empty."
 
 			if [ "false" = "$network_dhcp" ]; then
 				network_mode="static"
@@ -36,22 +32,15 @@ if [ "POST" = "$REQUEST_METHOD" ]; then
 			fi
 
 			if [ -z "$error" ]; then
-				command="setnetiface"
-				command="$command -i $network_interface"
-				command="$command -m $network_mode"
-				command="$command -h \"$(hostname -s)\""
-
+				command="setnetiface -i $network_interface -m $network_mode -h \"$(hostname -s)\""
 				if [ "dhcp" != "$network_mode" ]; then
-					command="$command -a $network_address"
-					command="$command -n $network_netmask"
+					command="$command -a $network_address -n $network_netmask"
 					[ -n "$network_gateway" ] && command="$command -g $network_gateway"
 					[ -n "$network_dns_1" ] && command="$command -d $network_dns_1"
 					[ -n "$network_dns_2" ] && command="$command,$network_dns_2"
 				fi
-
 				echo "$command" >>/tmp/webui.log
 				eval "$command" >/dev/null 2>&1
-
 				update_caminfo
 				redirect_back "success" "Network settings updated."
 			fi
@@ -65,10 +54,9 @@ fi
 <div class="col col-md-6 col-lg-4 mb-4">
 <form action="<%= $SCRIPT_NAME %>" method="post">
 <% field_hidden "action" "update" %>
-<% field_select "network_interface" "Network interface" "eth0 wlan0" %>
+<% field_select "network_interface" "Network interface" "$network_interfaces" %>
 <% field_text "network_wlan_ssid" "WLAN SSID" %>
 <% field_text "network_wlan_pass" "WLAN Password" %>
-
 <% field_switch "network_dhcp" "Use DHCP" %>
 <% field_text "network_address" "IP Address" %>
 <% field_text "network_netmask" "IP Netmask" %>

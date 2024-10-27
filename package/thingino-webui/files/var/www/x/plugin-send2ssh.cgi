@@ -11,10 +11,7 @@ config_file="$ui_config_dir/$plugin.conf"
 
 if [ "POST" = "$REQUEST_METHOD" ]; then
 	# parse values from parameters
-	for p in $params; do
-		eval ${plugin}_$p=\$POST_${plugin}_$p
-		sanitize "${plugin}_$p"
-	done; unset p
+	read_from_post "$plugin" "$params"
 
 	# validate
 	[ "true" = "$ssh_enabled" ] && [ -z "$ssh_host" ] && \
@@ -37,7 +34,7 @@ else
 
 	# Default values
 	[ -z "$ssh_port" ] && ssh_port="22"
-	[ -z "$ssh_username" ] && ssh_username="$(whoami)"
+	[ -z "$ssh_username" ] && ssh_username="root"
 fi
 %>
 <%in _header.cgi %>
