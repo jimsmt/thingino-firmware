@@ -18,3 +18,5 @@ gpio_wlan=16
 motor_maxstep_h=2048
 motor_maxstep_v=780
 wlandev=atbm6012b
+osmem=80M@0x0
+rmem=48M@0x5000000
