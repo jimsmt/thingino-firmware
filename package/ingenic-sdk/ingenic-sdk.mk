@@ -1,5 +1,5 @@
 INGENIC_SDK_SITE_METHOD = git
-INGENIC_SDK_SITE = https://github.com/themactep/ingenic-sdk
+INGENIC_SDK_SITE = https://github.com/jimsmt/ingenic-sdk
 INGENIC_SDK_SITE_BRANCH = master
 INGENIC_SDK_VERSION = $(shell git ls-remote $(INGENIC_SDK_SITE) $(INGENIC_SDK_SITE_BRANCH) | head -1 | cut -f1)
 
