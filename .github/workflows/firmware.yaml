@@ -88,7 +88,7 @@ jobs:
       - name: Generate matrix
         id: set-matrix
         run: |
-          if [[ "${{ github.event.inputs.teacup_only }}" == 'true' ]]; then
+          if [[ "${{ github.event.inputs.teacup_only1 }}" == 'true' ]]; then
             CONFIGS=$(find configs/cameras/ -type f | sort | awk -F '/' '{print $(NF)}' | awk NF | grep 'teacup')
           else
             CONFIGS="ssv6x5x"
