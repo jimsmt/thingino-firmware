@@ -1,5 +1,5 @@
 WIFI_SSV6X5X_SITE_METHOD = git
-WIFI_SSV6X5X_SITE = https://github.com/jimsmt/ssv6x5x-wifi
+WIFI_SSV6X5X_SITE = https://github.com/jimsmt/ssv6x5x
 WIFI_SSV6X5X_SITE_BRANCH = master
 WIFI_SSV6X5X_VERSION = $(shell git ls-remote $(WIFI_SSV6X5X_SITE) $(WIFI_SSV6X5X_SITE_BRANCH) | head -1 | cut -f1)
 
