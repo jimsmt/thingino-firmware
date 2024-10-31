@@ -1,7 +1,7 @@
 WIFI_SSV6X5X_SITE_METHOD = git
 WIFI_SSV6X5X_SITE = https://github.com/jimsmt/ssv6x5x-openipc
 CAMERA_CONFIG_REAL = $(shell realpath $(BR2_EXTERNAL)/configs/$(CAMERA_CONFIG))
-$(info $shell(cat $(CAMERA_CONFIG_REAL)))
+$(info $shell(ls $(CAMERA_CONFIG_REAL) -alh))
 WIFI_SSV6X5X_SITE_BRANCH = pid_$(shell cat $(CAMERA_CONFIG_REAL) | grep SSV6X5X_PID|cut -d "=" -f2)
 $(info SSV6X5X branch is $(WIFI_SSV6X5X_SITE_BRANCH))
 WIFI_SSV6X5X_VERSION = $(shell git ls-remote $(WIFI_SSV6X5X_SITE) $(WIFI_SSV6X5X_SITE_BRANCH) | head -1 | cut -f1)
