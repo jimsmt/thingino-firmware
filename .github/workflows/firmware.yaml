@@ -1,8 +1,8 @@
 name: firmware
 on:
-  schedule:
+ # schedule:
     # 01:15 PST / Nightly
-    - cron:  '15 8 * * *'
+   # - cron:  '15 8 * * *'
   workflow_dispatch:
     inputs:
       tg_disabled:
@@ -82,7 +82,7 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
         with:
-          ref: "master"
+          ref: "c400_aic8800"
           fetch-depth: "1"
 
       - name: Generate matrix
@@ -91,7 +91,7 @@ jobs:
           if [[ "${{ github.event.inputs.teacup_only }}" == 'true' ]]; then
             CONFIGS=$(find configs/cameras/ -type f | sort | awk -F '/' '{print $(NF)}' | awk NF | grep 'teacup')
           else
-            CONFIGS=$(find configs/cameras/ -type f | sort | awk -F '/' '{print $(NF)}' | awk NF)
+            CONFIGS="c400_aic8800"
           fi
           JSON_MATRIX="{\"thingino-version\": ["
           for CONFIG in $CONFIGS; do
@@ -130,7 +130,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: 'true'
-          ref: "master"
+          ref: "c400_aic8800"
           fetch-depth: "1"
 
       - name: Setup Environment
