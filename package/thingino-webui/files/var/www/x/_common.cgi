@@ -314,9 +314,7 @@ field_textedit() {
 }
 
 html_title() {
-	[ -n "$page_title" ] && echo -n "$page_title"
-	[ -n "$title" ] && echo -n ": $title"
-	echo -n " - $(hostname) - thingino"
+	echo -n "$page_title - $(hostname) - thingino"
 }
 
 html_theme() {
@@ -581,6 +579,7 @@ read_from_post() {
 }
 
 include() {
+	[ -f "$1" ] || touch $1
 	[ -f "$1" ] && . "$1"
 }
 

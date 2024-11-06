@@ -10,7 +10,6 @@ MOUNTS=$(awk '/nfs|fat/{print $2}' /etc/mtab)
 RECORD_CTL="/etc/init.d/S96record"
 
 config_file="$ui_config_dir/$plugin.conf"
-[ -f "$config_file" ] || touch $config_file
 include $config_file
 
 # defaults
@@ -23,7 +22,7 @@ include $config_file
 [ -z "$record_loop" ] && record_loop="true"
 [ -z "$record_videoformat" ] && record_videoformat="mp4"
 if [ -z "$record_filename" ] || [ "/" = "${record_filename:0-1}" ]; then
-	record_filename="thingino/%Y-%m-%d/%H:%M:%S"
+	record_filename="thingino/%Y-%m-%d/%Y-%m-%dT%H-%M-%S"
 fi
 
 if [ "POST" = "$REQUEST_METHOD" ]; then
