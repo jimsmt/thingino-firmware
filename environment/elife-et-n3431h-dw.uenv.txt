@@ -13,7 +13,6 @@ gpio_motor_v=11 17 16 14
 gpio_speaker=63O
 motor_maxstep_h=4200
 motor_maxstep_v=1600
-wlandev=ssv6155
-wlandevopts=stacfgpath=/usr/share/wifi/ssv6155-usb-40M.cfg
+wlandev=aic8800
 osmem=80M@0x0
 rmem=48M@0x5000000
